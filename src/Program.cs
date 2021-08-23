@@ -63,7 +63,28 @@ namespace example_screenshots
             Console.WriteLine("=================");
 
             Console.WriteLine($"Which window would you like to screenshot? (1-{availableWindows.Count})");
-            return (availableWindows[int.Parse(Console.ReadLine()) - 1]);
+
+            string selectedWindowTitle = string.Empty;
+
+            do {
+                var selection = Console.ReadLine();
+
+                // Were we given a valid integer?
+                if (!int.TryParse(selection, out int result))
+                {
+                    Console.WriteLine($"'{selection}' is not a valid selection, stop trying to break the example!");
+                    continue;
+                }
+
+                // Was the integer within the allowed range?
+                if (result > 0 && result <= availableWindows.Count)
+                    selectedWindowTitle = availableWindows[result];
+                else
+                    Console.WriteLine($"Selection must be between 1 and {availableWindows.Count}, try again");
+
+            } while (string.IsNullOrWhiteSpace(selectedWindowTitle));
+
+            return selectedWindowTitle;
         }
 
         /// <summary>
