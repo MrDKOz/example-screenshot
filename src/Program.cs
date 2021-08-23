@@ -10,7 +10,7 @@ namespace example_screenshots
     /// Author: Daniel Osborne
     /// Date: 2021-08-23
     /// Description: A small console application that takes a screenshot of the chosen window.
-    /// URL: https://github.com/mrdkoz
+    /// Repo: https://github.com/MrDKOz/example-screenshot
     /// </summary>
     class Program
     {
